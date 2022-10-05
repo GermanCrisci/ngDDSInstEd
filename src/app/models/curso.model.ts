@@ -5,7 +5,7 @@ import {Tema}     from './tema.model'
 export class Curso {
 	id?: number;
 	tema?: Tema;
-	fechaInicio?: string;
+	fecha_inicio?: string;
 	id_docente?: number;
 	materiales?: Material[];
 	alumnos?: Alumno[];
