@@ -20,9 +20,10 @@ export class AlumnoDetailsComponent implements OnInit {
     private router: Router) { }
     
   ngOnInit(): void {
-     this.getPost(this.route.snapshot.params["id"]);
+     this.getAlumno(this.route.snapshot.params["id"]);
   }
-  getPost(id: string): void {
+  
+  getAlumno(id: string): void {
     this.alumnoService.get(id)
       .subscribe({
         next: (data) => {
@@ -32,5 +33,20 @@ export class AlumnoDetailsComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
-
+  
+  public updateAlumno(id: string, nombre: string, fecha: string): void {
+	console.log(id)
+	console.log(nombre)
+	console.log(fecha)
+    this.currentAlumno = {id: Number(id), nombre: nombre, fecha_nacimiento: fecha};
+    console.log(this.currentAlumno)
+    this.alumnoService.update(this.currentAlumno.id, this.currentAlumno)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          alert("Alumno actualizado!")
+        },        
+        error: (e) => console.error(e)
+      });
+  }
 }
