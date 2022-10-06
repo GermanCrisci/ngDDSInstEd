@@ -35,16 +35,18 @@ export class AlumnoDetailsComponent implements OnInit {
   }
   
   public updateAlumno(id: string, nombre: string, fecha: string): void {
-	console.log(id)
-	console.log(nombre)
-	console.log(fecha)
+	if(nombre.length < 1) {alert("El nombre tiene que tener un largo de al menos 1."); return}
     this.currentAlumno = {id: Number(id), nombre: nombre, fecha_nacimiento: fecha};
     console.log(this.currentAlumno)
     this.alumnoService.update(this.currentAlumno.id, this.currentAlumno)
       .subscribe({
         next: (res) => {
           console.log(res);
-          alert("Alumno actualizado!")
+          if(res == "OK") {
+          	alert("Alumno actualizado exitosamente!")
+          } else {
+			alert("Hubo un error al guardar los cambios.")
+	      }
         },        
         error: (e) => console.error(e)
       });

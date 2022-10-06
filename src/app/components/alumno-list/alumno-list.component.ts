@@ -30,6 +30,7 @@ export class AlumnoListComponent implements OnInit {
   }
   deleteAlumno(id: string): void{
 	console.log("Se eliminara el alumno con id"+id)
+	
   }
   refreshList(): void {
     this.retrieveAlumnos();
