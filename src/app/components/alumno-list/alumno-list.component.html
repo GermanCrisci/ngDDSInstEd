@@ -1,1 +1,16 @@
-<p>alumno-list works!</p>
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Listado Alumnos</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let alumno of alumnos; let i = index"
+        [class.active]="i == currentIndex"
+	      >
+        {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
+	    <a routerLink="alumnos/" class="nav-link">Editar</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
