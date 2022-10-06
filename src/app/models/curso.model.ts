@@ -5,4 +5,5 @@ export class Curso {
 	tema?: Tema;
 	fecha_inicio?: string;
 	id_docente?: number;
+	nombre?: string;
 }
