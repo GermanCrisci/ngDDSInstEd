@@ -9,8 +9,13 @@
         [class.active]="i == currentIndex"
 	      >
         {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
-	    <button routerLink="id/{{alumno.id}}" class="btn btn-primary">Detalles</button>
-	    <button class="btn btn-danger"(click)="deleteAlumno({{alumno.id}})">Eliminar</button>    
+        <div style="display:flex">
+		    <button routerLink="id/{{alumno.id}}" class="btn btn-primary">Detalles</button>
+			<form>
+			  <input #id type="hidden" value="{{alumno.id}}">
+			  <button type="button" class="btn btn-danger" (click)="deleteAlumno(id.value)">Eliminar</button>
+			</form>        
+        </div>
       </li>
     </ul>
   </div>

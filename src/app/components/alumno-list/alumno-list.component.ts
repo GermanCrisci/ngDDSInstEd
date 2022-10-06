@@ -37,16 +37,14 @@ export class AlumnoListComponent implements OnInit {
 
 	public deleteAlumno(id: string): void {
 		console.log(id)
-		console.log(this.currentAlumno.id)
 		if (confirm("Esta seguro que desea eliminar este alumno?")) {
-			this.alumnoService.delete(this.currentAlumno.id)
+			this.alumnoService.delete(id)
 				.subscribe({
 					next: (res) => {
 						console.log(res);
-						if (res == "ok") {
+						if (res == "OK") {
 							alert("Alumno eliminado con exito")
-							this.router.navigate(['/alumnos']);
-
+						    window.location.reload();
 						} else {
 							this.router.navigate(['/alumnos']);
 							alert("Error al eliminar alumno")
