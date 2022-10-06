@@ -1,1 +1,29 @@
-<p>curso-material-details works!</p>
+<h3>Modificar Material</h3>
+<form>
+    <input #id type="hidden" value="{{material.id}}">
+    <input #id_curso type="hidden" value="{{material.id_curso}}">
+    <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" value="{{material.titulo}}" #titulo class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Costo</label>
+        <input type="number" value="{{material.costo}}" #costo class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Stock</label>
+        <input type="number" value="{{material.stock}}" #stock class="form-control">
+    </div>
+    <button type="button" class="btn btn-primary" 
+    (click)="updateMaterial
+        (
+            id.value, 
+            id_curso.value,
+            titulo.value, 
+            costo.value, 
+            stock.value
+        )">
+        Guardar Cambios
+    </button>
+    <a href="./cursos/id/{{ material.id_curso }}" class="btn btn-danger">Volver</a>
+</form>

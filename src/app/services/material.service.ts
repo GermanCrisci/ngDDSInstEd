@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Curso }    from '../models/curso.model';
 import { Material } from '../models/material.model';
 
 const baseUrl = 'http://localhost:4200/api/materiales';
@@ -24,6 +23,10 @@ export class MaterialService {
   
   getMaterialesCurso(id_curso: number): Observable<Material[]> {
     return this.http.get<Material[]>(`${baseUrl}/cursos/${id_curso}`);
+  }
+
+  get(id: number): Observable<Material> {
+    return this.http.get<Material>(`${baseUrl}/id/${id}`);
   }
 
   updateMaterial(id: any, data: any): Observable<any> {
