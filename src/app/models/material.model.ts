@@ -4,5 +4,6 @@ export class Material {
 	id?: number;
 	titulo?: string;
 	costo?: number;
-	curso?: Curso;
+	id_curso?: number;
+	stock?: number;
 }

@@ -22,7 +22,7 @@ export class AlumnoService {
 	const formData = new FormData();
 	formData.append('id', <string>id);
 	formData.append('nombre', <string>data.nombre);
-	formData.append('cursos', <string>data.cursos);
+	formData.append('fecha_nacimiento', <string>data.fecha_nacimiento);
     return this.http.put(`${baseUrl}/update`, formData, {responseType: 'text'});
   }
   delete(id: any): Observable<any> {

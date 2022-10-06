@@ -12,21 +12,31 @@ const baseUrl = 'http://localhost:4200/api/cursos';
 export class MaterialService {
 
   constructor(private http: HttpClient) { }
-  getAll(): Observable<Material[]> {
-    return this.http.get<Material[]>(baseUrl);
+  
+  create(data: any): Observable<Material> {
+  	const formData = new FormData();
+	formData.append('titulo', <string>data.titulo);
+	formData.append('costo', <string>data.costo);
+	formData.append('id_curso', <string>data.id_curso);
+	formData.append('stock', <string>data.stock);
+    return this.http.post(`${baseUrl}/add`, formData);
   }
-  get(id: any): Observable<Material> {
-    return this.http.get<Material>(`${baseUrl}/${id}`);
+  
+  getMaterialesCurso(id_curso: number): Observable<Material[]> {
+    return this.http.get<Material[]>(`$cursos/${id_curso}/materiales`);
   }
-  update(id: any, data: Material): Observable<any> {
+
+  updateMaterial(id: any, data: any): Observable<any> {
 	//Conversione a form data
 	const formData = new FormData();
 	formData.append('id', <string>id);
 	formData.append('titulo', <string>data.titulo);
-	formData.append('costo', <number>data.costo);
-	formData.append('curso', <Curso>data.curso);
+	formData.append('costo', <string>data.costo);
+	formData.append('id_curso', <string>data.id_curso);
+	formData.append('stock', <string>data.stock);
     return this.http.put(`${baseUrl}/update`, formData, {responseType: 'text'});
   }
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/delete/${id}`, {responseType: 'text'});
   }
+ }
