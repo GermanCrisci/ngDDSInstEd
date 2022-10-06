@@ -7,12 +7,14 @@ import { AlumnoService } from 'src/app/services/alumno.service';
   templateUrl: './alumno-list.component.html',
   styleUrls: ['./alumno-list.component.css']
 })
+
 export class AlumnoListComponent implements OnInit {
   alumnos?: Alumno[];
   currentAlumno: Alumno = {};
   currentIndex = -1;
   nombre = '';
   constructor(private alumnoService: AlumnoService) { }
+  
   ngOnInit(): void {
     this.retrieveAlumnos();
   }
@@ -25,6 +27,9 @@ export class AlumnoListComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+  }
+  deleteAlumno(id: string): void{
+	console.log("Se eliminara el alumno con id"+id)
   }
   refreshList(): void {
     this.retrieveAlumnos();
