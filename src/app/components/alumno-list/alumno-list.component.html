@@ -8,7 +8,7 @@
         [class.active]="i == currentIndex"
 	      >
         {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
-	    <a routerLink="alumnos/" class="nav-link">Editar</a>
+	    <a href="./alumnos/{{alumno.id}}" class="nav-link">Detalles</a>
       </li>
     </ul>
   </div>
