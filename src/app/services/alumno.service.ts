@@ -19,6 +19,15 @@ export class AlumnoService {
     return this.http.get<Alumno>(`${baseUrl}/${id}`);
   }
   
+  add(nombre: string, fecha_nacimiento: string): Observable<any> {
+	//Conversione a form data
+	const formData = new FormData();
+	formData.append('nombre', <string>nombre);
+	formData.append('fecha_nacimiento', <string>fecha_nacimiento);
+    return this.http.post(`${baseUrl}/add`, formData, {responseType: 'text'});
+  }
+
+  
   update(id: any, data: Alumno): Observable<any> {
 	//Conversione a form data
 	const formData = new FormData();
