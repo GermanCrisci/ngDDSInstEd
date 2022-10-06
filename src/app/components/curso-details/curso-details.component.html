@@ -1,1 +1,9 @@
 <p>curso-details works!</p>
+<form>
+  <input #id type="hidden" value="{{currentCurso.id}}">
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" value="{{currentCurso.nombre}}" #nombre class="form-control">
+  </div>
+  <a href="./cursos" class="btn btn-danger">Volver</a>
+</form>
