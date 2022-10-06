@@ -14,12 +14,12 @@ export class CursoListComponent implements OnInit {
 	cursos?: Curso[];
 	currentCurso: Curso = {};
 	currentIndex = -1;
+	
 	nombre = '';
 	constructor(
 		private cursoService: CursoService,
 		private route: ActivatedRoute,
 		private router: Router) { }
-
 
 	ngOnInit(): void {
 		this.retrieveCursos();

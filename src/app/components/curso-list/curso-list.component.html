@@ -7,7 +7,7 @@
           *ngFor="let curso of cursos; let i = index"
           [class.active]="i == currentIndex"
             >
-          {{ curso.nombre }}
+          Nombre: {{ curso.nombre }} - Tema: {{ curso?.tema?.nombre }}
           <div style="display:flex">
               <button routerLink="id/{{curso.id}}" class="btn btn-primary">Detalles</button>
           </div>
