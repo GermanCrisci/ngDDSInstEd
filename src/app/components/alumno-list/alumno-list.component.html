@@ -10,7 +10,7 @@
 	      >
         {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
 	    <button routerLink="id/{{alumno.id}}" class="btn btn-primary">Detalles</button>
-	    <button class="btn btn-danger">Eliminar</button>    
+	    <button class="btn btn-danger"(click)="deleteAlumno({{alumno.id}})">Eliminar</button>    
       </li>
     </ul>
   </div>
