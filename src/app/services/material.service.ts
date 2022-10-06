@@ -13,12 +13,12 @@ export class MaterialService {
 
   constructor(private http: HttpClient) { }
   
-  create(data: any): Observable<Material> {
+  create(id_curso: any, titulo: any, costo: any, stock: any): Observable<Material> {
   	const formData = new FormData();
-	formData.append('titulo', <string>data.titulo);
-	formData.append('costo', <string>data.costo);
-	formData.append('id_curso', <string>data.id_curso);
-	formData.append('stock', <string>data.stock);
+    formData.append('titulo', <string>titulo);
+    formData.append('costo', <string>costo);
+    formData.append('id_curso', <string>id_curso);
+    formData.append('stock', <string>stock);
     return this.http.post(`${baseUrl}/add`, formData);
   }
   

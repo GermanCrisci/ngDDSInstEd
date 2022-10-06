@@ -53,4 +53,47 @@ export class CursoDetailsComponent implements OnInit {
       });
   }
 
+  public addMaterial(id_curso: string, titulo: string, costo: string, stock: string): void {
+    if(titulo.length < 1) {alert("El nombre tiene que tener un largo de al menos 1."); return}
+    console.log(id_curso)
+    console.log(titulo)
+    console.log(costo)
+    console.log(stock)
+  
+    this.materialService.create(id_curso, titulo, costo, stock)
+        .subscribe({
+          next: (res) => {
+            console.log(res)
+            if(typeof res.id !== 'undefined') {
+              alert("Material creado exitosamente!")
+              window.location.reload();
+            } else {
+              alert("Hubo un error al crear el Material.")
+            }
+          },        
+          error: (e) => console.error(e)
+        });
+  }
+
+  public deleteMaterial(id: string): void {
+		console.log(id)
+		if (confirm("Esta seguro que desea eliminar este material?")) {
+			this.materialService.delete(id)
+				.subscribe({
+					next: (res) => {
+						console.log(res);
+						if (res == "OK") {
+							alert("Material eliminado con exito")
+						    window.location.reload();
+						} else {
+							alert("Error al eliminar material")
+						}
+					},
+					error: (e) => console.error(e)
+				});
+
+		} else {
+			this.router.navigate(['/materials']);
+		}
+	}
 }

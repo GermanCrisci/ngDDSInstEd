@@ -56,7 +56,6 @@ export class AlumnoListComponent implements OnInit {
 		} else {
 			this.router.navigate(['/alumnos']);
 		}
-
 	}
 
 	refreshList(): void {
