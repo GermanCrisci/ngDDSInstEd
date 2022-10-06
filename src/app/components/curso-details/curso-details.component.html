@@ -21,20 +21,24 @@
     <button type="button" class="btn btn-primary" (click)="addMaterial(id_curso.value, titulo.value, costo.value, stock.value)">Agregar</button>
   </form>
   <h3>Materiales</h3>
-  <div class="list row">
-    <div class="col-md-6">
-      <ul class="list-group" style="display: grid; grid-template-columns: auto auto auto">
-        <li class="list-group-item" *ngFor="let material of materiales; let i = index">
-          Nombre: {{ material.titulo }}<br>Stock: {{ material.stock }}<br>Costo: ${{ material.costo }}
-          <div style="display:flex">
-            <button routerLink="material/id/{{ material.id }}" class="btn btn-primary w-100 mt-2">Editar</button>
+  <div class="list row" style="min-width: 100%;">
+    <div class="col-md-6" style="min-width: 100%;">
+      <div class="list-group" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+        <div class="list-group-item" style="display: flex; flex-direction: column; justify-content: space-between; min-width: 330px; max-width: 330px" *ngFor="let material of materiales; let i = index">
+          <p style="word-wrap: wrap;">
+	          Nombre: {{ material.titulo }}<br>Stock: {{ material.stock }}<br>Costo: ${{ material.costo }}
+          </p>
+          <div>
+	          <div style="display:flex">
+	            <button routerLink="material/id/{{ material.id }}" class="btn btn-primary w-100 mt-2">Editar</button>
+	          </div>
+	          <form>
+	            <input #id type="hidden" value="{{material.id}}">
+	            <button type="button" class="btn btn-danger w-100 mt-2" (click)="deleteMaterial(id.value)">Eliminar</button>
+	          </form>        
           </div>
-          <form>
-            <input #id type="hidden" value="{{material.id}}">
-            <button type="button" class="btn btn-danger w-100 mt-2" (click)="deleteMaterial(id.value)">Eliminar</button>
-          </form>        
-        </li>
-      </ul>
+	     </div>
+      </div>
     </div>
   </div>
 </div>
