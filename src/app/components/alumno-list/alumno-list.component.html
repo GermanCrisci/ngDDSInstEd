@@ -1,6 +1,7 @@
 <div class="list row">
   <div class="col-md-6">
     <h4>Listado Alumnos</h4>
+	<a href="./alumnos/add" class="btn btn-success">Agregar alumno</a>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -8,7 +9,7 @@
         [class.active]="i == currentIndex"
 	      >
         {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
-	    <a href="./alumnos/{{alumno.id}}" class="nav-link">Detalles</a>
+	    <a href="./alumnos/id/{{alumno.id}}" class="btn btn-primary">Detalles</a>
       </li>
     </ul>
   </div>

@@ -11,12 +11,12 @@ import { CursoMaterialAddComponent } from './components/curso-material-add/curso
 const routes: Routes = [
   { path: '', redirectTo: 'alumnos', pathMatch: 'full' },
   { path: 'alumnos', component: AlumnoListComponent },
-  { path: 'alumnos/:id', component: AlumnoDetailsComponent },
+  { path: 'alumnos/id/:id', component: AlumnoDetailsComponent },
   { path: 'alumnos/add', component: AlumnoAddComponent },
   { path: 'cursos', component: CursoListComponent },
-  { path: 'cursos/:id', component: CursoDetailsComponent },
-  { path: 'cursos/:id/material/:idm', component: CursoMaterialDetailsComponent },
-  { path: 'cursos/:id/material/add', component: CursoMaterialAddComponent },
+  { path: 'cursos/id/:id', component: CursoDetailsComponent },
+  { path: 'cursos/id/:id/material/id/:idm', component: CursoMaterialDetailsComponent },
+  { path: 'cursos/id/:id/material/add', component: CursoMaterialAddComponent },
 ];
 
 @NgModule({
