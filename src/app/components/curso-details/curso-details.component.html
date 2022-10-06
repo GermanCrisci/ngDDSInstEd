@@ -1,9 +1,22 @@
-<p>curso-details works!</p>
-<form>
-  <input #id type="hidden" value="{{currentCurso.id}}">
-  <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" value="{{currentCurso.nombre}}" #nombre class="form-control">
+<div class="form-group">
+  <h2>Detalles Curso</h2>
+  <p>Nombre: {{curso.nombre}}</p>
+  <p>Fecha Inicio: {{curso.fecha_inicio}}</p>
+  <p>Tema: </p>
+  <h3>Materiales</h3>
+  <div class="list row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let material of materiales; let i = index"            >
+          Nombre: {{ material.titulo }} - Stock: {{ material.stock }} - Costo: {{ material.costo }}
+          <div style="display:flex">
+              <button routerLink="material/id/{{ material.id }}" class="btn btn-primary">Editar</button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  <a href="./cursos" class="btn btn-danger">Volver</a>
-</form>
+</div>
+<button routerLink="./cursos" class="btn btn-danger">Volver</button>

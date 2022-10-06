@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/models/curso.model';
 import { Tema } from 'src/app/models/tema.model';
+import { Material } from 'src/app/models/material.model';
 import { CursoService } from 'src/app/services/curso.service';
+import { MaterialService } from 'src/app/services/material.service';
 
 @Component({
   selector: 'app-curso-details',
@@ -10,7 +12,8 @@ import { CursoService } from 'src/app/services/curso.service';
   styleUrls: ['./curso-details.component.css']
 })
 export class CursoDetailsComponent implements OnInit {
-	@Input() currentCurso: Curso = {
+  materiales?: Material[];
+	@Input() curso: Curso = {
     nombre: '',
     tema: undefined,
     fecha_inicio: '',
@@ -18,12 +21,14 @@ export class CursoDetailsComponent implements OnInit {
   };
 
   constructor(
-	private cursoService: CursoService,
+    private cursoService: CursoService,
+    private materialService: MaterialService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-	this.getCurso(this.route.snapshot.params["id"]);
+    this.getCurso(this.route.snapshot.params["id"]);
+    this.getMateriales(this.route.snapshot.params["id"]);
   }
   
   getCurso(id: string): void {
@@ -31,7 +36,18 @@ export class CursoDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log(data);
-		  this.currentCurso = data;
+          this.curso = data;
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  getMateriales(id: string): void {
+    this.materialService.getMaterialesCurso(Number(id))
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          this.materiales = data;
         },
         error: (e) => console.error(e)
       });
