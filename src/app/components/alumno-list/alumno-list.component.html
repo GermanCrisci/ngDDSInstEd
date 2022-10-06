@@ -1,7 +1,7 @@
 <div class="list row">
   <div class="col-md-6">
     <h4>Listado Alumnos</h4>
-	<a href="./alumnos/add" class="btn btn-success">Agregar alumno</a>
+	<button routerLink="add" class="btn btn-success">Agregar alumno</button>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -9,7 +9,7 @@
         [class.active]="i == currentIndex"
 	      >
         {{ alumno.nombre }} {{ alumno.fecha_nacimiento }}
-	    <a href="./alumnos/id/{{alumno.id}}" class="btn btn-primary">Detalles</a>
+	    <button routerLink="id/{{alumno.id}}" class="btn btn-primary">Detalles</button>
       </li>
     </ul>
   </div>

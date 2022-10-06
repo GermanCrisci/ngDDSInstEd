@@ -8,6 +8,7 @@ import { Post } from 'src/app/models/post.model';
   templateUrl: './post-details.component.html',
   styleUrls: ['./post-details.component.css']
 })
+
 export class PostDetailsComponent implements OnInit {
   @Input() viewMode = false;
   @Input() currentPost: Post = {
