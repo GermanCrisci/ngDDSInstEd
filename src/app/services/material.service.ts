@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { Curso }    from '../models/curso.model';
 import { Material } from '../models/material.model';
 
-const baseUrl = 'http://localhost:4200/api/cursos';
-
+const baseUrl = 'http://localhost:4200/api/materiales';
+const baseUrlCursos = 'http://localhost:4200/api/cursos';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,7 @@ export class MaterialService {
   }
   
   getMaterialesCurso(id_curso: number): Observable<Material[]> {
-    return this.http.get<Material[]>(`$cursos/${id_curso}/materiales`);
+    return this.http.get<Material[]>(`${baseUrlCursos}/${id_curso}/materiales`);
   }
 
   updateMaterial(id: any, data: any): Observable<any> {

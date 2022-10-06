@@ -14,9 +14,11 @@ export class AlumnoService {
   getAll(): Observable<Alumno[]> {
     return this.http.get<Alumno[]>(baseUrl);
   }
+  
   get(id: any): Observable<Alumno> {
     return this.http.get<Alumno>(`${baseUrl}/${id}`);
   }
+  
   update(id: any, data: Alumno): Observable<any> {
 	//Conversione a form data
 	const formData = new FormData();
@@ -25,7 +27,12 @@ export class AlumnoService {
 	formData.append('fecha_nacimiento', <string>data.fecha_nacimiento);
     return this.http.put(`${baseUrl}/update`, formData, {responseType: 'text'});
   }
+  
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/delete/${id}`, {responseType: 'text'});
+  }
+  
+  cursosDeAlumno(id: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}/cursos`);
   }
 }
