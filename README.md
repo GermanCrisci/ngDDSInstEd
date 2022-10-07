@@ -1,27 +1,21 @@
 # Instituto Educativo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+## Cambios a base de datos
 
-## Development server
+El id_tema de materiales a id_curso ya que en los casos de uso dice que los materiales son del curso
+Agregamos el atributo fecha_nacimiento a los alumnos
+Agregarmos el atributo stock a los materiales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Cambios backend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Terminamos eliminando las relaciones entre la mayoria de las entidades en el backend para que funcione el frontend todo con llamadas al servidor.
+Solo dejamos conectado el curso con el tema ya que solo se visualiza el tema, si estaban conectados no podiamos hacer el update.
+Agregamos metodos para sacar los materiales de id curso por ejemplo, para que se maneje por una llamada al backend.
+Sabiamos que no era lo mejor pero no lo podiamos solucionar, nos adaptamos.
 
-## Build
+## Cambios frontend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Utilizamos partes del proyecto que presentaron en clase pero simplificamos algunas cosas que no pudimos hacer funcionar, como los mensajes
+Terminamos optando por usar alert() y confirm() para mostrar al usuario mensajes y pedirle que confirme ciertas acciones.
+En los formularios optamos por usar #nombreInput y (click) para llamar a las funciones.
