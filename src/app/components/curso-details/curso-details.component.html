@@ -2,7 +2,7 @@
   <h2>Detalles Curso</h2>
   <p>Nombre: {{curso.nombre}}</p>
   <p>Fecha Inicio: {{curso.fecha_inicio}}</p>
-  <p>Tema: </p>
+  <p>Tema: {{ curso?.tema?.nombre }}</p>
   <h3>Agregar Material</h3>
   <form style="display: grid; grid-template-columns: auto auto auto;">
     <input #id_curso type="hidden" value="{{ curso.id }}">
